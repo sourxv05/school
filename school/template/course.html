@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">SCHOOL STORE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'sapp:index' %}">Home</a>
+      </li>
+    </ul>
+           <a  href="{% url 'sapp:login' %}"><button class=" btn-outline-warning my-2 my-sm-0" type="button">Logout</button></a>
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="#">Pricing</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item dropdown">-->
+<!--        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--          Department-->
+<!--        </a>-->
+<!--        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
+<!--          <a class="dropdown-item" href="#">Computer Science</a>-->
+<!--          <a class="dropdown-item" href="#">Commerce</a>-->
+<!--          <a class="dropdown-item" href="#">Biology</a>-->
+<!--        </div>-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <li class="nav-item ">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link" href="#"><button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button><span class="sr-only">(current)</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--    </ul>-->
+<!--    <form class="form-inline my-2 my-lg-0">-->
+<!--&lt;!&ndash;      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">&ndash;&gt;-->
+<!--     <a class="nav-link" href="{% url 'sapp:login' %}"><button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button></a>-->
+<!--    </form>-->
+  </div>
+</nav>
+
+<body>
+    <div class="login" >
+
+<div class="log">
+
+<form action="" method="post">
+    {% csrf_token %}
+<!--  <div class="imgcontainer">-->
+<!--    <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+<!--  </div>-->
+
+  <div class="container">
+       <label><b>HELLO!</u></b></label><br>
+
+<table>
+    <tr>
+    <td><label>NAME</label></td>
+   <td><input type="text" name="nam" placeholder=" name"></td>
+    </tr>
+
+      <tr>
+    <td><label>D.O.B</label></td>
+   <td><input type="date" name="dob" placeholder="dob"></td>
+    </tr>
+     <td><label>AGE</label></td>
+   <td><input type="number" name="age" placeholder=""></td> &nbsp;
+    </tr>
+
+      <tr>
+    <td><label>GENDER:</label></td>
+   <td><input type="radio" name="gender" id="male">M &nbsp;<input type="radio" name="gender" id="Female">F</td>
+    </tr>
+     <tr>
+    <td><label>PHONE </label></td>
+   <td><input type="text" name="phone" placeholder="phonenumber"></td>
+    </tr>
+     <tr>
+    <td><label>Email</label></td>
+   <td><input type="email" name="email" placeholder="Email"></td>
+    </tr>
+     <tr>
+    <td><label>ADDRESS</label></td>
+   <td><input type="text" name="address" placeholder="address"></td>
+    </tr>
+    <tr>
+     <td><label>DEPARTMNET</label></td>
+
+   <td> <select id="country"  name="dep" onchange="updateCities()">
+        <option value="">Select your department</option>
+        <option value="cs">COMPUTER SCIENCE</option>
+        <option value="co">COMMERCE</option>
+       <option value="ma">MATHEMATICS</option>
+
+        <!-- Add more country options here -->
+    </select>
+    </td>
+
+    </tr>
+    <tr>
+    <td><label>COURSE</label></td>
+    <td>
+
+        <select id="city"   name="cou">
+        <option value="">Select your course</option>
+    </select>
+    </td>
+    <tr>
+    <td><label>PURPOSE</label></td>
+ <td><select name="pur" id="purpode">
+         {% for i in purpos %}
+  <option value="{{i.name}}">{{i.name}}</option>
+       {% endfor %}
+ </select>
+ </td>
+    </tr>
+
+    <tr>
+    <td><label>MATERIALS PROVIDED </label></td>
+      <td><div class="form-check">
+          {% for i in mat %}
+  <input class="ck1" type="checkbox" name="mate" value="{{i.name}}" id="ck1">
+  <label class="ck" for="ck1">
+    {{i.name}}
+  </label>
+          {% endfor %}
+</div>
+<!--<div class="form-check">-->
+
+<!--  <label class="ck2" for="ck2">-->
+<!--    Notebook-->
+<!--  </label>-->
+<!--</div>-->
+<!--        <div class="form-check">-->
+<!--  <input class="ck2" type="checkbox" value="ck2" id="ck2">-->
+<!--  <label class="ck2" for="ck2">-->
+<!--    PEN-->
+<!--  </label>-->
+<!--</div>-->
+        </td>
+    </tr>
+
+
+
+
+
+
+</table>
+      <div class="logbtn">
+   <button class="btn btn-warning" type="submit">submit</button>
+</div>
+
+</form>
+</div>
+</div>
+
+    <script>
+        function updateCities() {
+            var countryDropdown = document.getElementById("country");
+            var cityDropdown = document.getElementById("city");
+
+            // Clear city dropdown
+            cityDropdown.innerHTML = '';
+
+            // Define city options based on the selected country
+            var cities = {
+                cs: ['Bca', 'Bsc Computer Science', 'Msc computer science'],
+                co: ['Bcom', 'Mcom'],
+                ma: ['Msc Mathematics', 'Bsc Mathematics']
+                // Add more cities as needed
+            };
+
+            var selectedCountry = countryDropdown.value;
+            var countryCities = cities[selectedCountry];
+
+            if (countryCities) {
+                for (var i = 0; i < countryCities.length; i++) {
+                    var option = document.createElement('option');
+                    option.value = countryCities[i];
+                    option.text = countryCities[i];
+                    cityDropdown.appendChild(option);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

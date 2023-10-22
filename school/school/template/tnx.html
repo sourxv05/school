@@ -1,0 +1,17 @@
+{% extends 'nav.html' %}
+{% load static %}
+
+{% block content %}
+<!--<div class="banner">-->
+<!--  <img align="down" src="{% static 'img/banner6.png' %}" alt=""  width="500" height="500">-->
+<!--</div>-->
+<div class="tn">
+    <h2  class="suces"  style="color: green" align="middle">Your Order has been placed succesfully</h2>
+    <center><img  src="{% static 'img/banneran2.gif' %}" alt=""  width=" auto" height="300"></center>
+<h3 align="middle">thank you visit again!!</h3>
+<center><a href="{% url 'sapp:index' %}">back to home</a></center>
+
+</div>
+
+
+{% endblock %}

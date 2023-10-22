@@ -1,0 +1,53 @@
+{% extends 'nav.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!--          <img align=”right”  src="{% static 'img/banner2.png' %}" alt="our product" width="500" height="500" >-->
+<!-- <h1>GeeksforGeeks</h1>-->
+
+<!--    <h3 class="new">{{user.name}}Let's get started</h3>-->
+<!--    <h1 class="new">with a few details</h1>-->
+<!--    <p>-->
+<!--       <H4 class="tnx"> Thank you for registering with our SCHOOL.STORE service.To activate your acoount please setup your profile</H4>-->
+<!--    </p>-->
+<!--    &lt;!&ndash; Keep align attribute value as right &ndash;&gt;-->
+<!--    <img align="right" src="{% static 'img/banner2.png' %}" alt=""  width="50" height="50">-->
+<!--    <div class="btn2">-->
+<!--        <a class="btn btn-warning" href="{% url 'sapp:profile' %}">Lets go>></a>-->
+
+<!--    </div>-->
+
+ <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-5 offset-md-1">
+                  <div class="detail-box">
+                    <h1>
+                      <h2 style="bold">Let's get started</h2>
+                        <U><h3 style="color: green">Grab yours today </h3></U>
+<!--                    </h1>-->
+<!--                    <p class="sckl">-->
+<!--                        <h6>SCHOOL.STORE</h6>-->
+<!--                    </p>-->
+<!--                       <button class="btn0">About Us</button>-->
+                    <div class="btn-box">
+<!--                      <a href="" class="btn0">-->
+    <a class="nav-link" href="{% url 'sapp:profile' %}"><button  class="btn btn-warning" type="button">Lets Go>></button></a></center>
+<!--                      </a>-->
+<!--                      <a href="" class="btn-2">-->
+<!--                        Get A Quote-->
+<!--                      </a>-->
+                    </div>
+                  </div>
+                </div>
+                <div class="offset-md-1 col-md-4 img-container">
+                  <div class="img-box">
+                    <img src="{% static 'img/about-img.jpg' %}" alt=""  width="700" height="500">
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}
